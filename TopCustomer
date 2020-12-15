@@ -1,0 +1,99 @@
+//Cedestinson Ductan
+import java.util.ArrayList;
+import java.util.Scanner;
+
+    public class TopCustomer {
+	
+	public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+
+	ArrayList<Double> purchase = new ArrayList<Double>();
+
+	ArrayList<String> customers = new ArrayList<String>();
+
+	while(true){
+
+	System.out.println("Enter customer name: ");
+
+	String name =scan.nextLine();
+
+	System.out.println("Enter purchase price: ");
+
+	double price = scan.nextDouble();
+
+	scan.nextLine();
+
+	if(price == 0){
+
+	break;
+
+	}
+
+	purchase.add(price);
+
+	customers.add(name);
+
+	}
+
+	String customerName = nameOfTopCustomer(purchase, customers);
+
+	System.out.println("Top customer is "+customerName);
+
+	System.out.println("Enter the purchase to be searched: ");
+
+	double searched = scan.nextDouble();
+
+	System.out.println("Field purchase "+searched+": "+findSales(purchase, searched));
+
+	}
+
+	public static String nameOfTopCustomer(ArrayList<Double> sales, ArrayList<String> customers){
+
+	double max = 0;
+
+	int maxIndex = 0;
+
+	for(int i=0; i<sales.size(); i++){
+
+	if(max < sales.get(i)){
+
+	max = sales.get(i);
+
+	maxIndex = i;
+
+	}
+
+	}
+
+	return customers.get(maxIndex);
+
+	}
+
+	public static int findSales(ArrayList<Double> purchase, double sale) {
+
+	for(int i=0;i<purchase.size();i++) {
+
+	if(purchase.get(i) == sale) {
+
+	return i;
+
+	}
+
+	}
+
+	return -1;
+
+	}
+
+    }
+    
+      
+		
+		
+		
+		
+		
+		
+		
+		  
